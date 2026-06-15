@@ -1,10 +1,14 @@
-body {
-    background-image: url('./assets/planet-cartoon-space-background.jpeg'); 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
+$default-background-size: cover;
+$primary-color: #ffffff;
 
-    font-family: 'Stellar';
-  }/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url('./assets/planet-cartoon-space-background.jpeg'); 
+  -webkit-background-size: $default-background-size;
+  -moz-background-size: $default-background-size;
+  -o-background-size: $default-background-size;
+  background-size: $default-background-size;
+  background-repeat: no-repeat;
+  color: $primary-color;
+
+  font-family: 'Stellar';
+}

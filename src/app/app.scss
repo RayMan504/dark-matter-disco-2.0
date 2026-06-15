@@ -1,0 +1,9 @@
+$default-position: absolute;
+$padding: 1rem;
+$left: 30%;
+
+#header {
+  position: $default-position;
+  left: $left;
+  padding: $padding;
+}
