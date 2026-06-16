@@ -12,20 +12,24 @@
 
 <main class="main">
   <div class="content" class="text-light h-100">
-      <div id="header">
-        @if(hostUsername) {
-          <div class="host-invite">
-            {{ hostUsername }} wants to dance!
-            <button class="btn btn-success">Initiate Dance Battle!</button>
-          </div>
-        }
-        @if(inviteeUsername) {
-          <div class="invitee-invite">
-            waiting for {{ inviteeUsername }}...
-          </div>
-        }
-      </div>
-
+    <div id="header">
+      @if(hostUsername) {
+        <div class="host-invite">
+          {{ hostUsername }} wants to dance!
+          <button class="btn btn-success">Initiate Dance Battle!</button>
+        </div>
+      }
+      @if(inviteeUsername) {
+        <div class="invitee-invite">
+          waiting for {{ inviteeUsername }}...
+        </div>
+      }
+    </div>
+    <div>
+      <app-toolbar></app-toolbar>
+    </div>
+  </div>
+</main>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -33,6 +37,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+ <router-outlet />
