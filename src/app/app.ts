@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import randomNames from '../assets/random-usernames';
 import { Toolbar } from "./toolbar/toolbar";
+import { DanceFloor } from './dance-floor/dance-floor';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toolbar],
+  imports: [RouterOutlet, Toolbar, DanceFloor],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
