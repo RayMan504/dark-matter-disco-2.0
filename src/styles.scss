@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+$default-background-size: cover;
+$primary-color: #ffffff;
+$max-star-logo-width: 3rem;
+
+body {
+  background-image: url('./assets/planet-cartoon-space-background.jpeg'); 
+  -webkit-background-size: $default-background-size;
+  -moz-background-size: $default-background-size;
+  -o-background-size: $default-background-size;
+  background-size: $default-background-size;
+  background-repeat: no-repeat;
+  color: $primary-color;
+
+  font-family: 'Stellar';
+}
+
+.user-star {
+  max-width: $max-star-logo-width;
+}
