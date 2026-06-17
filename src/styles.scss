@@ -1,5 +1,6 @@
 $default-background-size: cover;
 $primary-color: #ffffff;
+$max-star-logo-width: 3rem;
 
 body {
   background-image: url('./assets/planet-cartoon-space-background.jpeg'); 
@@ -11,4 +12,8 @@ body {
   color: $primary-color;
 
   font-family: 'Stellar';
+}
+
+.user-star {
+  max-width: $max-star-logo-width;
 }
