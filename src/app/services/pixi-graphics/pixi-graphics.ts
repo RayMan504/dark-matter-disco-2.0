@@ -30,6 +30,12 @@ export class PixiGraphicsService {
     // this.app.stage.addChild(this.sprite);
     this.app.stage.addChild(this.graphics);
 
+    // position canvas in center of page
+    this.app.canvas.style.position = 'absolute';
+    this.app.canvas.style.top = '50%';
+    this.app.canvas.style.left = '50%';
+    this.app.canvas.style.transform = 'translate(-50%, -50%)';
+
     // Append PIXI canvas to the DOM
     document.body.appendChild(this.app.canvas);
   }
