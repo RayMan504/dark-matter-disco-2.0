@@ -1,59 +1,57 @@
-# DarkMatterDisco2.0
+# Dark Matter Disco 2.0
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.15.
+A modern Angular 21 application with SSR support, motion tracking, and immersive dance-floor visuals.
+Based on legacy Dark Matter Disco project located here: 
+https://github.com/dark-matter-interactive/dark-matter-disco
 
-## Development server
 
-To start a local development server, run:
+## Quick Start
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Install dependencies:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Start the app locally:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Open the app at:
 
-To build the project run:
-
-```bash
-ng build
+```text
+http://localhost:4200/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Available Scripts
 
-## Running unit tests
+- `npm start` — start the local development server
+- `npm run build` — compile the application for production
+- `npm run watch` — build in watch mode for development
+- `npm test` — run unit tests with Vitest
+- `npm run serve:ssr:dark-matter-disco-2.0` — serve the SSR build from `dist/dark-matter-disco-2.0`
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Project Structure
 
-```bash
-ng test
-```
+- `src/app/` — main Angular modules and components
+- `src/app/dance-floor/` — dance floor rendering and scene logic
+- `src/app/dancer/` — dancer component and pose animation
+- `src/app/services/pose-detection/` — MediaPipe pose detection integration
+- `src/app/services/camera/` — camera access and video stream handling
+- `src/app/stars/` — starfield background visuals
+- `src/app/toolbar/` — control panel and interaction UI
+- `src/assets/` — static assets and helper data
 
-## Running end-to-end tests
+## Notes
 
-For end-to-end (e2e) testing, run:
+- Built with Angular 21 and Angular SSR.
+- Uses PIXI.js for graphics and MediaPipe for pose tracking.
+- Live reload is enabled during development.
 
-```bash
-ng e2e
-```
+## Learn More
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+For Angular CLI documentation and command reference, visit:
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+https://angular.dev/tools/cli
