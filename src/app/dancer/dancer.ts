@@ -16,16 +16,19 @@ export class Dancer implements AfterViewInit {
 
 
   async ngAfterViewInit(): Promise<void> {
-      const videoElement = this.videoRef.nativeElement;
+      try {
+        const videoElement = this.videoRef.nativeElement;
 
-      // initialize camera, pixi graphics, and pose detection
-      await this.cameraService.initCamera(videoElement);
-      await this.pixiGraphicsService.initPixi(videoElement);
-      await this.poseDetectionService.initializePoseLandmarker();
+        // initialize camera, pixi graphics, and pose detection
+        await this.cameraService.initCamera(videoElement);
+        await this.pixiGraphicsService.initPixi(videoElement);
+        await this.poseDetectionService.initializePoseLandmarker();
 
-      const poseLandmarker = this.poseDetectionService.getInstance();
-
-      // start pose detection and graphics rendering
-      this.pixiGraphicsService.startDetection(videoElement, poseLandmarker);
+        // start pose detection and graphics rendering
+        this.pixiGraphicsService.startDetection(videoElement, this.poseDetectionService.getInstance());
+      } catch(error) {
+        console.error('Error in ngAfterViewInit:', error);
+      }
+      
   }
 }
