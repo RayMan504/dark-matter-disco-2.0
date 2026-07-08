@@ -23,8 +23,9 @@ export class PixiGraphicsService {
       this.app = new Application();
 
       await this.app.init({
-        width: 640,
-        height: 480,
+        width: 800,
+        height: 800,
+        // resizeTo: window,
         backgroundAlpha: 0
       })
 
@@ -34,7 +35,7 @@ export class PixiGraphicsService {
       this.sprite.width = this.app.screen.width;
       this.sprite.height = this.app.screen.height;
       // load skin asset to texture
-      this.texture = await Assets.load('../../assets/robot.png');
+      // this.texture = await Assets.load('../../assets/robot.png');
       // this.app.stage.addChild(this.sprite);
       this.app.stage.addChild(this.graphics);
 
@@ -43,9 +44,6 @@ export class PixiGraphicsService {
       this.app.canvas.style.top = '50%';
       this.app.canvas.style.left = '50%';
       this.app.canvas.style.transform = 'translate(-50%, -50%)';
-
-
-      
 
       // Append PIXI canvas to the DOM
       document.body.appendChild(this.app.canvas);
@@ -58,61 +56,25 @@ export class PixiGraphicsService {
   // attempt to track poses
   public startDetection(video: HTMLVideoElement, poseLandmarker: PoseLandmarker): void {
 
-
     this.app.ticker.add(() => {
       // update the sprite texture with the current video frame
       this.sprite.texture.update();
 
       // get video frame and detect poses
-      // const result =
-        poseLandmarker.detectForVideo(
-          video,
-          performance.now(),
-          this.onResults.bind(this)
-        );
+      poseLandmarker.detectForVideo(
+        video,
+        performance.now(),
+        this.onResults.bind(this)
+      );
 
-      // if (!result.landmarks?.length) {
-      //   return;
-      // }
-        // clear graphics before rendering new landmarks
-      // this.graphics.clear();
-
-      // bound sprites in order to render within canvas
-      // const bounds = this.sprite.getBounds();
-      // for (const lm of result.landmarks[0]) {
-      //   const x = bounds.x + lm.x * bounds.width;
-      //   const y = bounds.y + lm.y * bounds.height;
-
-
-        // render graphics for each landmark
-        // fill graphics with skin
-        // this.graphics.fill("red");
-      //   this.graphics.fill(this.texture);
-      //   this.graphics.circle(x, y, 4);
-      // }
-     
     });
   }
 
   public onResults(results: any) {
     try {
       if (results.landmarks && results.landmarks.length > 0) {
-        // clear graphics before rendering new landmarks
-        this.graphics.clear();
-
-        // bound sprites in order to render within canvas
-        const bounds = this.sprite.getBounds();
-        for (const lm of results.landmarks[0]) {
-          const x = bounds.x + lm.x * bounds.width;
-          const y = bounds.y + lm.y * bounds.height;
-
-
-          // render graphics for each landmark
-          // fill graphics with skin
-          this.graphics.fill("red");
-          // this.graphics.fill(this.texture);
-          this.graphics.circle(x, y, 4);
-        }
+        // Call the drawSkeleton method with the detected landmarks
+        this.drawSkeleton(results.landmarks[0]);
       }
     } catch(error) {
       console.error('Error processing media pipe landmark results:', error);
@@ -180,6 +142,5 @@ export class PixiGraphicsService {
     } catch(error) {
       console.error('Error drawing skeleton:', error);
     }
-      
   }
 }
