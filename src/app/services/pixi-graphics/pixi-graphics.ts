@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Application, Assets, Graphics, Sprite, Texture } from 'pixi.js';
+import { Application, Graphics, Sprite, Texture } from 'pixi.js';
 import { NormalizedLandmark, PoseLandmarker } from '@mediapipe/tasks-vision';
 
 interface Point2D {
@@ -23,6 +23,7 @@ export class PixiGraphicsService {
       this.app = new Application();
 
       await this.app.init({
+        // TODO: possible size uodate after web socket connection to server is established
         width: 800,
         height: 800,
         // resizeTo: window,
@@ -35,8 +36,8 @@ export class PixiGraphicsService {
       this.sprite.width = this.app.screen.width;
       this.sprite.height = this.app.screen.height;
       // load skin asset to texture
+      // TODO: uncomment after successful custom skin draw implementation
       // this.texture = await Assets.load('../../assets/robot.png');
-      // this.app.stage.addChild(this.sprite);
       this.app.stage.addChild(this.graphics);
 
       // position canvas in center of page
@@ -135,6 +136,7 @@ export class PixiGraphicsService {
       this.graphics.moveTo(neck.x, neck.y).lineTo(nose.x, nose.y);
       this.graphics.stroke({ 
         width: 80, 
+        // TODO: figure out drawing custom skin textures
         // texture: this.sprite.texture 
         color: 'red',
         cap: 'round' 
