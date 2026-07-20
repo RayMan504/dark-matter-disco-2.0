@@ -134,13 +134,9 @@ export class PixiGraphicsService {
       
       // --- SEGMENT 5: Head ---
       this.graphics.moveTo(neck.x, neck.y).lineTo(nose.x, nose.y);
-      this.graphics.stroke({ 
-        width: 80, 
         // TODO: figure out drawing custom skin textures
-        // texture: this.sprite.texture 
-        color: 'red',
-        cap: 'round' 
-      });
+
+      this.graphics.circle(nose.x, nose.y, 100).fill({color: 'red'})
     } catch(error) {
       console.error('Error drawing skeleton:', error);
     }
